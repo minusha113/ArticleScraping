@@ -9,7 +9,7 @@ coin_telegraph = newspaper.build('https://cointelegraph.com/', memoize_articles=
 urls = {}
 
 # Creating a csv file to save urls of the articles
-csv_file = open('coinTele_urls.csv', 'w')
+csv_file = open('coinTele_urls.csv', 'a')
 
 # Get all the article urls in the list 'urls' and write in csv file created
 for article in coin_telegraph.articles:
@@ -25,7 +25,7 @@ for category in coin_telegraph.category_urls():
     print(category)
 
 # Create another csv files for storing the scraped info
-csv_file = open('coinTele_scrape.csv', 'w')
+csv_file = open('coinTele_scrape.csv', 'a')
 
 for article in coin_telegraph.articles:
     if not urls[article.url]:

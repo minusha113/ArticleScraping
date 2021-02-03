@@ -9,7 +9,7 @@ news_bitcoin = newspaper.build('https://news.bitcoin.com/', memoize_articles=Fal
 urls = {}
 
 # Creating a csv file to save urls of the articles
-csv_file = open('NewsBit_urls.csv', 'w')
+csv_file = open('NewsBit_urls.csv', 'a')
 
 # Get all the article urls in the list 'urls' and write in csv file created
 for article in news_bitcoin.articles:
@@ -25,7 +25,7 @@ for category in news_bitcoin.category_urls():
     print(category)
 
 # Create another csv files for storing the scraped info
-csv_file = open('NewsBit_scrape.csv', 'w')
+csv_file = open('NewsBit_scrape.csv', 'a')
 
 for article in news_bitcoin.articles:
     if not urls[article.url]:
@@ -54,4 +54,4 @@ for article in news_bitcoin.articles:
 
         # Write all the scraped details into the csv file
         csv_writer = csv.writer(csv_file)
-        csv_writer.writerow([newsbit_article.publish_date, newsbit_article.top_image, newsbit_article.text, newsbit_article.keywords, newsbit_article.summary])
+        csv_writer.writerow([newsbit_article.authors, newsbit_article.publish_date, newsbit_article.top_image, newsbit_article.text, newsbit_article.keywords, newsbit_article.summary])
